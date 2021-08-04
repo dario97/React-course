@@ -1,14 +1,21 @@
 import React from "react";
-import './Card.css';
+import PropTypes from "prop-types";
+import "./Card.css";
 
-const Card = () => {
+const Card = ({lang, img, fcolor, scolor}) => {
     return(
-    <div className="card">
-        <img src="#" alt="lang.svg"/>
-        <h3>Lenguaje</h3>
+    <div className="card" style={{
+        background: `linear-gradient(to left, ${fcolor}, ${scolor})`,
+    }}>
+        <img className="imagen" src={img} alt="lang.svg"/>
+        <h3>{lang}</h3>
     </div>
-    )
-    
+    );
+};
+
+Card.propTypes = {
+    lang: PropTypes.string,
+    img: PropTypes.string,
 }
 
 export default Card;
